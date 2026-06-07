@@ -5,10 +5,13 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#FFBD00",
+          "foreground": "#C678DD",
+          "options": {
+            "time_format": "15:04:05"
+          },
           "style": "plain",
-          "template": "{{ .UserName }}'s ",
-          "type": "session"
+          "template": "[{{ .CurrentDate | date .Format }}] ",
+          "type": "time"
         },
         {
           "foreground": "#00C6F7",
@@ -16,7 +19,7 @@
             "style": "folder"
           },
           "style": "plain",
-          "template": "{{ .Path }}/ ",
+          "template": "{{ .Path }} ",
           "type": "path"
         },
         {
@@ -41,37 +44,13 @@
       "type": "prompt"
     },
     {
-      "alignment": "right",
-      "segments": [
-        {
-          "foreground": "#85C980",
-          "style": "diamond",
-          "template": "RAM:{{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB ",
-          "trailing_diamond": " ",
-          "type": "sysinfo"
-        },
-        {
-          "foreground": "#ffffff",
-          "leading_diamond": "\u250b",
-          "options": {
-            "style": "roundrock",
-            "threshold": 0
-          },
-          "style": "diamond",
-          "template": " {{ .FormattedMs }} ",
-          "type": "executiontime"
-        }
-      ],
-      "type": "prompt"
-    },
-    {
       "alignment": "left",
       "newline": true,
       "segments": [
         {
           "foreground": "#FFBD00",
           "style": "plain",
-          "template": "\u2b9e ",
+          "template": "# ",
           "type": "text"
         }
       ],
